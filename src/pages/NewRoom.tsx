@@ -2,7 +2,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
 import illustrationImg from '../assets/images/illustration.svg';
 import { Button } from '../components/Button';
+
 import logoImg from '../assets/images/logo.svg';
+import logoDarkImg from '../assets/images/logo_dark.svg';
+
 import '../styles/auth.scss'
 import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
@@ -40,7 +43,12 @@ export function NewRoom() {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt='LetMeAsk' />
+          {theme === 'light' ? (
+            <img src={logoImg} alt='LetMeAsk' />
+          ) : (
+            <img src={logoDarkImg} alt='LetMeAsk' />
+          )
+          }
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input

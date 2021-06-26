@@ -5,6 +5,7 @@ import illustrationImg from '../assets/images/illustration.svg';
 import { Button } from '../components/Button';
 
 import logoImg from '../assets/images/logo.svg';
+import logoDarkImg from '../assets/images/logo_dark.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 import lightThemeImg from '../assets/images/sun-color.svg';
 import darkThemeImg from '../assets/images/dark-mode.svg';
@@ -62,7 +63,12 @@ export function Home() {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt='LetMeAsk' />
+          {theme === 'light' ? (
+            <img src={logoImg} alt='LetMeAsk' />
+          ) : (
+            <img src={logoDarkImg} alt='LetMeAsk' />
+          )
+          }
           <button onClick={handleCreateRoom} className="create-room">
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua Sala com o Google

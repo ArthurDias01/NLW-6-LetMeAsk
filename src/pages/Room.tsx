@@ -1,7 +1,10 @@
 import { FormEvent, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+
 import logoImg from '../assets/images/logo.svg';
+import logoDarkImg from '../assets/images/logo_dark.svg';
+
 import { Button } from '../components/Button';
 import { Question } from '../components/Question/index';
 import { RoomCode } from '../components/RoomCode';
@@ -61,7 +64,12 @@ export function Room() {
     <div id="page-room" className={theme}>
       <header>
         <div className="content">
-          <img src={logoImg} alt="LetMeAsk" />
+          {theme === 'light' ? (
+            <img src={logoImg} alt='LetMeAsk' />
+          ) : (
+            <img src={logoDarkImg} alt='LetMeAsk' />
+          )
+          }
           <div><RoomCode code={roomId} /></div>
           <div><Button className="Leave" type="submit" onClick={() => signOut()}>Sair</Button></div>
         </div>
