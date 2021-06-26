@@ -61,7 +61,6 @@ export function Room() {
     <div id="page-room" className={theme}>
       <header>
         <div className="content">
-          <h2>{theme}</h2>
           <img src={logoImg} alt="LetMeAsk" />
           <div><RoomCode code={roomId} /></div>
           <div><Button className="Leave" type="submit" onClick={() => signOut()}>Sair</Button></div>
