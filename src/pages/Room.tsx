@@ -7,6 +7,7 @@ import { Question } from '../components/Question/index';
 import { RoomCode } from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+import { useTheme } from '../hooks/useTheme';
 import { database } from '../services/firebase';
 import '../styles/room.scss';
 
@@ -15,12 +16,12 @@ type RoomParams = {
 }
 
 export function Room() {
-  const { user, signInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, signOut } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
   const { questions, title } = useRoom(roomId);
-
+  const { theme } = useTheme();
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
     if (likeId) {
@@ -31,8 +32,6 @@ export function Room() {
       })
     }
   }
-
-
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -59,11 +58,13 @@ export function Room() {
 
 
   return (
-    <div id="page-room">
+    <div id="page-room" className={theme}>
       <header>
         <div className="content">
+          <h2>{theme}</h2>
           <img src={logoImg} alt="LetMeAsk" />
           <div><RoomCode code={roomId} /></div>
+          <div><Button className="Leave" type="submit" onClick={() => signOut()}>Sair</Button></div>
         </div>
         <div><Toaster
           position="top-center"

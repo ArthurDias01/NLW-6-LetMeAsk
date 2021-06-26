@@ -1,4 +1,4 @@
-// import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ type RoomParams = {
 }
 
 export function AdminRoom() {
-  // const { user, signInWithGoogle } = useAuth();
+  const { signOut } = useAuth();
   const params = useParams<RoomParams>();
   // const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
@@ -58,6 +58,7 @@ export function AdminRoom() {
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>Encerrar Sala</Button>
+            <div><Button className="Leave" type="submit" onClick={() => signOut()}>Sair</Button></div>
           </div>
         </div>
       </header>

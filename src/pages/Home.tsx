@@ -3,17 +3,25 @@ import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import illustrationImg from '../assets/images/illustration.svg';
 import { Button } from '../components/Button';
+
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
-import '../styles/auth.scss';
+import lightThemeImg from '../assets/images/sun-color.svg';
+import darkThemeImg from '../assets/images/dark-mode.svg';
+
+
 import { database } from '../services/firebase';
 import toast, { Toaster } from 'react-hot-toast';
+import { useTheme } from '../hooks/useTheme';
+import '../styles/auth.scss';
 
 
 export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
   const [roomCode, setRoomCode] = useState('');
+
+  const { theme, toggleTheme } = useTheme();
 
   async function handleCreateRoom() {
     if (!user) {
@@ -42,7 +50,7 @@ export function Home() {
   }
 
   return (
-    <div id="page-auth">
+    <div id="page-auth" className={theme}>
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -72,6 +80,14 @@ export function Home() {
             </Button>
           </form>
         </div>
+        <Button className="ButtonThemeToggle" onClick={toggleTheme}>
+          {theme === 'light' ? (
+            <img src={darkThemeImg} alt="Alterar tema para dark" />
+          ) : (
+            <img src={lightThemeImg} alt="Alterar tema para light" />
+          )}
+
+        </Button>
       </main>
     </div>
   )
