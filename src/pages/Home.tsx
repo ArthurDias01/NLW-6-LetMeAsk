@@ -32,6 +32,12 @@ export function Home() {
       toast.error(`Room doesn't not exists.`);
       return;
     }
+
+    if (roomRef.val().endedAt) {
+      toast.error(`Room already closed.`);
+      return;
+    }
+
     history.push(`/rooms/${roomCode}`);
   }
 
