@@ -10,32 +10,42 @@
 
 ![cover](.github/cover.png?style=flat)
 
-## 💻 Projeto
+## 💻 Project
 
-Aplicativo para organizar lives com perguntas e respostas em tempo real.
+[PT-BR] Aplicativo para organizar lives com perguntas e respostas em tempo real. <br/>
+[ENG] Application to organize lives streams with Q&A in real time logged for everyone in the room to see.
 
 ## :hammer_and_wrench: Features
+  [PT-BR]
+- [x] Autenticação Social OAuth2 com Google (Firebase).
+- [x] Utilização do firebase realtime DB.
+- [x] Obtém perfil do usuário cadastrado no Google (username e avatar);
+- [x] Botão de cópia de código da página para compartilhamento;
+- [x] Disponibiliza a função de Logout.
+- [x] Sistema de Likes nos questionamentos
+- [x] Painel de Adm para marcar questões respondidas
 
-- [ ] Autenticação Social OAuth2 com Google (Firebase).
-- [ ] Utilização do firebase realtime DB.
-- [ ] Obtém perfil do usuário cadastrado no Google (username e avatar);
-- [ ] Botão de cópia de código da página para compartilhamento;
-- [ ] Disponibiliza a função de Logout.
-- [ ] Sistema de Likes nos questionamentos
-- [ ] Painel de Adm para marcar questões respondidas
+[ENG]
+- [x] OAuth2 authentication with Google (Firebase).
+- [x] firebase realtime DB.
+- [x] Gets user profile and avatar from Google users;
+- [x] Button to copy and share page code for room accessing;
+- [x] Logout function.
+- [x] Likes on Questions to rank up for the streamer.
+- [x] Admin panel to mark questions answered.
 
-## ✨ Tecnologias
+## ✨ Tecnologias | Tech
 
-- [ ] React
-- [ ] Typescript
-- [ ] Context API
-- [ ] Vector Icons
-- [ ] React Svg
-- [ ] Gradient colors
-- [ ] OAuth2 Google Firebase
-- [ ] Google Fonts
-- [ ] React Roter
-- [ ] React Hot Toast
+- [x] React
+- [x] Typescript
+- [x] Context API
+- [x] Vector Icons
+- [x] React Svg
+- [x] Gradient colors
+- [x] OAuth2 Google Firebase
+- [x] Google Fonts
+- [x] React Roter
+- [x] React Hot Toast
 
 ## 🔖 Layout
 
